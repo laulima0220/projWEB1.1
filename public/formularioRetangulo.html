@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Formulários</title>
+</head>
+
+<body>
+
+    <!-- 
+        📚 Página de exemplo para operações com Retângulo
+
+        💡 Objetivo didático:
+        - Enviar dois parâmetros (base e altura)
+        - Integrar com rotas do backend (Slim)
+    -->
+
+    <h1>Exemplo Retangulo</h1>
+
+    <div>
+        <h2>Calculo de área</h2>
+
+        <!-- 
+            📐 Formulário para calcular ÁREA do retângulo
+
+            Vai chamar:
+            /retangulos/areas
+
+            Exemplo de URL gerada:
+            /retangulos/areas?txtBase=5&txtAltura=3
+        -->
+        <form action="/retangulos/areas" method="get">
+
+            <!-- 
+                Campo da base
+                
+                name="txtBase" → será acessado no PHP como:
+                $dados["txtBase"]
+            -->
+            <input type="text" name="txtBase" placeholder="Digite a base"><br>
+
+            <!-- 
+                Campo da altura
+                
+                name="txtAltura" → será acessado no PHP como:
+                $dados["txtAltura"]
+            -->
+            <input type="text" name="txtAltura" placeholder="Digite a altura"><br>
+
+            <!-- Botão de envio -->
+            <input type="submit" value="Calcular área">
+        </form>
+    </div>
+
+    <br>
+
+    <div>
+        <h2>Calculo de perímetro</h2>
+
+        <!-- 
+            📏 Formulário para calcular PERÍMETRO do retângulo
+
+            Vai chamar:
+            /retangulos/perimetros
+        -->
+        <form action="/retangulos/perimetros" method="get">
+
+            <!-- Reutilização dos mesmos campos -->
+            <input type="text" name="txtBase" placeholder="Digite a base"><br>
+            <input type="text" name="txtAltura" placeholder="Digite a altura"><br>
+
+            <input type="submit" value="Calcular perimetro">
+        </form>
+    </div>
+
+</body>
+
+</html>
