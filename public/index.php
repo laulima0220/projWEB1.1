@@ -57,6 +57,8 @@ use src\geometria\Retangulo;
 use src\exemplo\Horas;
 use src\projeto\Pessoa;
 
+use src\projeto\Nota;
+
 /**
  * Classes do Slim Framework:
  * 
@@ -145,6 +147,8 @@ $app->get(
         $link3 = "<a href='formularioHoras.html'>📏 Exemplo Horas</a>";
         $link4 = "<a href='formularioPessoa.html'>📏 Cálculo de IMC</a>";
 
+        $link6 = "<a href='formularioNota.html'>📏 Cálculo de Média - Ver Situação do Aluno</a>";
+
         /**
          * Construção da resposta:
          * 
@@ -154,7 +158,7 @@ $app->get(
          * ⚠️ IMPORTANTE: Em APIs profissionais, NÃO se deve retornar HTML
          * O correto seria retornar JSON (falaremos sobre isso depois)
          */
-        $resposta = "$link1<br>$link2<br>$link3<br>$link4";
+        $resposta = "$link1<br>$link2<br>$link3<br>$link4<br>$link6";
         $response->getBody()->write($resposta);
 
         /**
@@ -471,6 +475,44 @@ $app->get(
         $imc = $p->calcularIMC();
         $mensagem = $p->MensagemIMC();
         $resposta = "Olá, $Nomeform! Seu IMC é $imc - $mensagem";
+        $response->getBody()->write($resposta);
+        return $response;
+    }
+);
+
+$app->get(
+    '/nota/media',
+    function(Request $request, Response $response): ResponseInterface{
+        $dados = $request->getQueryParams();
+        $Nomeform = $dados["txtNome"] ?? "";
+        $Nota1form=$dados["txtNota1"] ?? 0;
+        $Nota2form=$dados["txtNota2"] ?? 0;
+
+        if(!is_numeric($Nota1form)){
+            $response->getBody()->write("!! Erro: A nota 1 deve ser um número.");
+            return $response;
+        }
+
+        if(!is_numeric($Nota2form)){
+            $response->getBody()->write("!! Erro: A nota 2 deve ser um número.");
+            return $response;
+        }
+
+        $n = new Nota();
+        $n->setNome($Nomeform);
+        $n->setNota1($Nota1form);
+        $n->setNota2($Nota2form);
+        $media = $n->calcularMedia();
+        
+        if ($media >= 7) {
+            $situacao = "Aprovado";
+        } elseif ($media >= 5) {
+            $situacao = "Recuperação";
+        } elseif ($media > 3) {
+            $situacao = "Reprovado";
+        }
+
+        $resposta = "Olá, $Nomeform! Sua média é $media - Situação: $situacao";
         $response->getBody()->write($resposta);
         return $response;
     }
