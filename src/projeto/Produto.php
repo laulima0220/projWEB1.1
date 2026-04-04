@@ -4,6 +4,10 @@ namespace src\projeto;
 
 class Produto{
 
+    public function getValorTotal(): float {
+        return $this->preco * $this->qtdEstoque;
+    }
+    
     private int $qtdEstoque = 0;
     public function setEstoque(int $novoE):void{
         if($novoE<0){

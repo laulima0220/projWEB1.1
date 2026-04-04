@@ -5,6 +5,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 
 use src\projeto\Pessoa;
+use src\projeto\Produto;
 use src\projeto\Nota;
 use src\projeto\Funcionario;
 use src\projeto\Triangulo;
@@ -73,6 +74,47 @@ $app->get(
         $resposta = "Olá, $Nomeform!<br>Seu IMC é $imc<br>Situação: $mensagem";
         $response->getBody()->write($resposta);
         return $response;
+    }
+);
+
+$app->get(
+    '/produtos/estoques',
+    function(Request $request, Response $response): ResponseInterface{
+        $dados = $request->getQueryParams();
+        $produtosform = [];
+
+        for ($i = 1; $i <= 5; $i++) {
+            $nomeform = $dados["txtNome$i"] ?? "";
+            $precoform = str_replace(',', '.', $dados["txtPreco$i"] ?? 0);
+            $estoqueform = $dados["txtQtdE$i"] ?? 0;
+            $entradaform = $dados["txtAddE$i"] ?? 0;
+            $saidaform = $dados["txtDelE$i"] ?? 0;
+   
+            if (!is_numeric($precoform) || !is_numeric($entradaform) || !is_numeric($saidaform)) {
+                $response->getBody()->write("Erro no produto $i: valores inválidos");
+                return $response;
+            }
+
+            $p=new Produto();
+            $p->setNome($nomeform);
+            $p->setPreco($precoform);
+            $p->setEstoque($estoqueform);
+            $p->addEstoque($entradaform);
+            $p->delEstoque($saidaform);
+
+            $produtosform[]=$p;
+        }
+
+    $resposta = "";
+
+    foreach ($produtosform as $p) {
+        $resposta .= "Produto: " . $p->getNome() . "<br>";
+        $resposta .= "Quantidade: " . $p->getEstoque() . "<br>";
+        $resposta .= "Valor total: R$ " . number_format($p->getValorTotal(), 2, ',', '.') . "<br><br>";
+    }
+
+    $response->getBody()->write($resposta);
+    return $response;
     }
 );
 
@@ -185,6 +227,7 @@ $app->get(
         return $response;
     }
 );
+
 
 
 $app->run();
