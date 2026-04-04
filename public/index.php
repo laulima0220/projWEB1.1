@@ -28,13 +28,13 @@ $app->get(
 
 
         $link1 = "<a href='formularioPessoa.html'> Cálculo de IMC</a>";
-
+        $link2 = "<a href='formularioProduto.html'> Ver Estoque de loja</a>";
         $link3 = "<a href='formularioNota.html'> Cálculo de Média - Ver situação do aluno</a>";
         $link4 = "<a href='formularioFuncionario.html'> Salário de funcionário</a>";
         $link5 = "<a href='formularioTriangulo.html'> Calcular Triângulo</a>";
 
 
-        $resposta = "<br>$link1<br>$link3<br>$link4<br>$link5";
+        $resposta = "<br>$link1<br>$link2<br>$link3<br>$link4<br>$link5";
         $response->getBody()->write($resposta);
 
 

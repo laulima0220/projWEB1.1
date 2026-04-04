@@ -11,7 +11,7 @@ class Triangulo{
         $this->ladoA + $this->ladoC <= $this->ladoB ||
         $this->ladoB + $this->ladoC <= $this->ladoA
         ) {
-        throw new \InvalidArgumentException("Triângulo não existe!");
+        throw new \InvalidArgumentException("Esse triângulo não existe!");
         }
     }  
 
