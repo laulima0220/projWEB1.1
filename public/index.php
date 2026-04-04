@@ -7,6 +7,7 @@ require __DIR__ . '/../vendor/autoload.php';
 use src\projeto\Pessoa;
 use src\projeto\Nota;
 use src\projeto\Funcionario;
+use src\projeto\Triangulo;
 
 
 
@@ -30,9 +31,10 @@ $app->get(
 
         $link3 = "<a href='formularioNota.html'> Cálculo de Média - Ver situação do aluno</a>";
         $link4 = "<a href='formularioFuncionario.html'> Salário de funcionário</a>";
+        $link5 = "<a href='formularioTriangulo.html'> Calcular Triângulo</a>";
 
 
-        $resposta = "<br>$link1<br>$link3<br>$link4";
+        $resposta = "<br>$link1<br>$link3<br>$link4<br>$link5";
         $response->getBody()->write($resposta);
 
 
@@ -144,6 +146,41 @@ $app->get(
         $f->setqtdHorasExtras($qtdHorasExtrasform);
         $salario=$f->calcularSalario();
         $resposta = "Olá $Nomeform!<br>Seu salário é $salario";
+        $response->getBody()->write($resposta);
+        return $response;
+    }
+);
+
+$app->get(
+    '/triangulos/perimetros',
+    function(Request $request, Response $response): ResponseInterface{
+        $dados=$request->getQueryParams();
+        $LadoAform=$dados["txtLadoA"] ?? 0;
+        $LadoBform=$dados["txtLadoB"] ?? 0;
+        $LadoCform=$dados["txtLadoC"] ?? 0;
+
+        if(!is_numeric($LadoAform)){
+            $response->getBody()->write("!! Erro: O lado deve ser um número.");
+            return $response;
+        }
+        if(!is_numeric($LadoBform)){
+            $response->getBody()->write("!! Erro: O lado deve ser um número.");
+            return $response;
+        }
+        if(!is_numeric($LadoCform)){
+            $response->getBody()->write("!! Erro: O lado deve ser um número.");
+            return $response;
+        }
+
+        $l=new Triangulo();
+        $l->setLadoA($LadoAform);
+        $l->setLadoB($LadoBform);
+        $l->setLadoC($LadoCform);
+        $l->testarTriangulo();
+        $tipo=$l->tipoTriangulo();
+        $perimetro=$l->calcularPerimetro();
+        $area=$l->calcularArea();
+        $resposta="Tipo do triângulo: $tipo<br>Perímetro: $perimetro<br>Área: $area";
         $response->getBody()->write($resposta);
         return $response;
     }
