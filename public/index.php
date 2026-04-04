@@ -6,6 +6,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use src\projeto\Pessoa;
 use src\projeto\Nota;
+use src\projeto\Funcionario;
 
 
 
@@ -25,11 +26,13 @@ $app->get(
     function (Request $request, Response $response): ResponseInterface {
 
 
-        $link1 = "<a href='formularioPessoa.html'>📏 Cálculo de IMC</a>";
-        $link2 = "<a href='formularioNota.html'> Cálculo de Média - Ver situação do aluno</a>";
+        $link1 = "<a href='formularioPessoa.html'> Cálculo de IMC</a>";
+
+        $link3 = "<a href='formularioNota.html'> Cálculo de Média - Ver situação do aluno</a>";
+        $link4 = "<a href='formularioFuncionario.html'> Salário de funcionário</a>";
 
 
-        $resposta = "<br>$link1<br>$link2";
+        $resposta = "<br>$link1<br>$link3<br>$link4";
         $response->getBody()->write($resposta);
 
 
@@ -97,6 +100,50 @@ $app->get(
         $situacao=$n->SituacaoAluno();
 
         $resposta = "Olá, $Nomeform!<br>Nota 1: $Nota1form || Nota 2: $Nota2form<br>Média: $media<br>Situação: $situacao";
+        $response->getBody()->write($resposta);
+        return $response;
+    }
+);
+
+$app->get(
+    '/funcionarios/salarios',
+    function(Request $request, Response $response): ResponseInterface{
+        $dados=$request->getQueryParams();
+        $Nomeform=$dados["txtNome"] ?? "";
+        $valorHoraform=$dados["txtvalorHora"] ?? 0;
+        $valorHoraExtraform=$dados["txtvalorHoraExtra"] ?? 0;
+        $qtdHorasform=$dados["txtqtdHoras"] ?? 0;
+        $qtdHorasExtrasform=$dados["txtqtdHorasExtras"] ?? 0;
+
+        if(!is_numeric($valorHoraform)){
+            $response->getBody()->write("!! Erro: O valor da hora deve ser um número.");
+            return $response;
+        }
+
+        
+        if(!is_numeric($valorHoraExtraform)){
+            $response->getBody()->write("!! Erro: O valor da hora extra deve ser um número.");
+            return $response;
+        }
+
+        if(!is_numeric($qtdHorasform)){
+            $response->getBody()->write("!! Erro: A quantidade de horas deve ser um número.");
+            return $response;
+        }
+
+        if(!is_numeric($qtdHorasExtrasform)){
+            $response->getBody()->write("!! Erro: A quantidade de horas extras deve ser um número.");
+            return $response;
+        }
+
+        $f=new Funcionario();
+        $f->setNome($Nomeform);
+        $f->setvalorHora($valorHoraform);
+        $f->setvalorHoraExtra($valorHoraExtraform);
+        $f->setqtdHoras($qtdHorasform);
+        $f->setqtdHorasExtras($qtdHorasExtrasform);
+        $salario=$f->calcularSalario();
+        $resposta = "Olá $Nomeform!<br>Seu salário é $salario";
         $response->getBody()->write($resposta);
         return $response;
     }
