@@ -70,9 +70,7 @@
         </a>
     </div>
 
-    </div>
-</body>
-
+    </div>t</body>
 
 </html>
 

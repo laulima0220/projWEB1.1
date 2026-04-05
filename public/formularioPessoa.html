@@ -1,20 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-    <meta charset="UTF-8">
-    <title>Calcular IMC</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<head>
+  <meta charset="UTF-8">
+  <title>Calcular IMC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-    <body>
-        <form action="/pessoa/imc" method="get">
-            <input type="text" name="txtNome" placeholder="Digite o nome"><br>
-            <input type="text" name="txtPeso" placeholder="Digite o peso"><br>
-            <input type="text" name="txtAltura" placeholder="Digite a altura"><br>
 
-            <input type="submit" value="Calcular IMC">
-            
-        </form>        
-    </body>
+<body class="d-flex justify-content-center align-items-center" style="min-height: 100vh; background-color: #07093d;">
 
+  <div class="container" style="max-width: 480px;">
+
+    <h1 class="text-primary text-center">Cálculo de IMC</h1>
+    <h5 class="text-info text-center mb-4">Informe seu nome, seu peso e sua altura.</h5>
+
+    <form action="/pessoa/imc" method="get" class="card p-4 text-white" style="background-color: #7b00bd;">
+
+      <div class="mb-3">
+        <label class="form-label">Nome</label>
+        <input type="text" name="txtNome" placeholder="Digite o nome" class="form-control">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Peso (kg)</label>
+        <input type="text" name="txtPeso" placeholder="Digite seu peso em kg" class="form-control">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Altura (m)</label>
+        <input type="text" name="txtAltura" placeholder="Digite sua altura em m" class="form-control">
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100 mt-2">Calcular IMC</button>
+
+    </form>
+
+    <div class="text-center mt-3">
+      <a href="/" class="text-info">← Voltar ao menu</a>
+    </div>
+
+  </div>
+
+</body>
 </html>
