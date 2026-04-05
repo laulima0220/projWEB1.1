@@ -1,3 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto PAW1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        h1{text-align: center;}
+        a.card:hover {
+        background-color: #000000;
+        border-color: #222222;
+        }
+        h5{text-align: center;}
+    </style>
+</head>
+
+<body class="d-flex justify-content-center align-items-center" style="min-height: 70vh; background-color: #07093d;">
+
+  <div class="container">
+
+      <h1 class="text-primary">Projeto PAW 1º Bimestre</h1>
+      <h5 class="text-info">Página de projeto com 5 formulários!!</h5>
+
+
+    <div class="row justify-content-center g-3">
+
+      <div class="col-4">
+        <a href="formularioPessoa.html" class="card text-decoration-none text-white p-3 h-100" style="background-color: #7b00bd">
+          <div class="card-body">
+            <h6 class="card-title">Cálculo de IMC</h6>
+            <p class="card-text" style="font-size: 13px;">Informe seu peso e altura para calcular seu IMC e ver sua situação.</p>
+          </div>
+        </a>
+      </div>
+
+    <div class="col-4">
+        <a href="formularioProduto.html" class="card text-decoration-none text-white p-3 h-100" style="background-color: #7b00bd">
+        <div class="card-body">
+            <h6 class="card-title">Ver estoque de loja</h6>
+            <p class="card-text" style="font-size: 13px;">Cadastre produtos e gerencie o estoque.</p>
+        </div>
+        </a>
+    </div>
+
+    <div class="col-4">
+        <a href="formularioNota.html" class="card text-decoration-none text-white p-3 h-100" style="background-color: #7b00bd">
+        <div class="card-body">
+            <h6 class="card-title">Cálculo de média</h6>
+            <p class="card-text" style="font-size: 13px;">Calcule a média do aluno e veja a situação.</p>
+        </div>
+        </a>
+    </div>
+
+    <div class="col-4">
+        <a href="formularioFuncionario.html" class="card text-decoration-none text-white p-3 h-100" style="background-color: #7b00bd">
+        <div class="card-body">
+            <h6 class="card-title">Salário de funcionário</h6>
+            <p class="card-text" style="font-size: 13px;">Calcule o salário a partir das horas trabalhadas e das horas extras.</p>
+        </div>
+        </a>
+    </div>
+
+    <div class="col-4">
+        <a href="formularioTriangulo.html" class="card text-decoration-none text-white p-3 h-100" style="background-color: #7b00bd">
+        <div class="card-body">
+            <h6 class="card-title">Calcular triângulo</h6>
+            <p class="card-text" style="font-size: 13px;">Informe os lados e descubra o tipo, perímetro e área do triângulo.</p>
+        </div>
+        </a>
+    </div>
+
+    </div>
+</body>
+
+
+</html>
+
 <?php
 
 require __DIR__ . '/../vendor/autoload.php';
@@ -24,22 +102,7 @@ $app = AppFactory::create();
 
 $app->get(
     '/',
-
     function (Request $request, Response $response): ResponseInterface {
-
-
-        $link1 = "<a href='formularioPessoa.html'> Cálculo de IMC</a>";
-        $link2 = "<a href='formularioProduto.html'> Ver Estoque de loja</a>";
-        $link3 = "<a href='formularioNota.html'> Cálculo de Média - Ver situação do aluno</a>";
-        $link4 = "<a href='formularioFuncionario.html'> Salário de funcionário</a>";
-        $link5 = "<a href='formularioTriangulo.html'> Calcular Triângulo</a>";
-
-
-        $resposta = "<br>$link1<br>$link2<br>$link3<br>$link4<br>$link5";
-        $response->getBody()->write($resposta);
-
-
-
         return $response;
     }
 );
