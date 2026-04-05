@@ -1,79 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto PAW1</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        h1{text-align: center;}
-        a.card:hover {
-        background-color: #000000;
-        border-color: #222222;
-        }
-        h5{text-align: center;}
-    </style>
-</head>
-
-<body class="d-flex justify-content-center align-items-center" style="min-height: 70vh; background-color: #07093d;">
-
-  <div class="container">
-
-      <h1 class="text-primary">Projeto PAW 1º Bimestre</h1>
-      <h5 class="text-info">Página de projeto com 5 formulários!!</h5>
-
-
-    <div class="row justify-content-center g-3">
-
-      <div class="col-4">
-        <a href="formularioPessoa.html" class="card text-decoration-none text-white p-3 h-100" style="background-color: #7b00bd">
-          <div class="card-body">
-            <h6 class="card-title">Cálculo de IMC</h6>
-            <p class="card-text" style="font-size: 13px;">Informe seu peso e altura para calcular seu IMC e ver sua situação.</p>
-          </div>
-        </a>
-      </div>
-
-    <div class="col-4">
-        <a href="formularioProduto.html" class="card text-decoration-none text-white p-3 h-100" style="background-color: #7b00bd">
-        <div class="card-body">
-            <h6 class="card-title">Ver estoque de loja</h6>
-            <p class="card-text" style="font-size: 13px;">Cadastre produtos e gerencie o estoque.</p>
-        </div>
-        </a>
-    </div>
-
-    <div class="col-4">
-        <a href="formularioNota.html" class="card text-decoration-none text-white p-3 h-100" style="background-color: #7b00bd">
-        <div class="card-body">
-            <h6 class="card-title">Cálculo de média</h6>
-            <p class="card-text" style="font-size: 13px;">Calcule a média do aluno e veja a situação.</p>
-        </div>
-        </a>
-    </div>
-
-    <div class="col-4">
-        <a href="formularioFuncionario.html" class="card text-decoration-none text-white p-3 h-100" style="background-color: #7b00bd">
-        <div class="card-body">
-            <h6 class="card-title">Salário de funcionário</h6>
-            <p class="card-text" style="font-size: 13px;">Calcule o salário a partir das horas trabalhadas e das horas extras.</p>
-        </div>
-        </a>
-    </div>
-
-    <div class="col-4">
-        <a href="formularioTriangulo.html" class="card text-decoration-none text-white p-3 h-100" style="background-color: #7b00bd">
-        <div class="card-body">
-            <h6 class="card-title">Calcular triângulo</h6>
-            <p class="card-text" style="font-size: 13px;">Informe os lados e descubra o tipo, perímetro e área do triângulo.</p>
-        </div>
-        </a>
-    </div>
-
-    </div>t</body>
-
-</html>
-
 <?php
 
 require __DIR__ . '/../vendor/autoload.php';
@@ -101,6 +25,83 @@ $app = AppFactory::create();
 $app->get(
     '/',
     function (Request $request, Response $response): ResponseInterface {
+        $resposta='
+        <!DOCTYPE html>
+            <html lang="pt-BR">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Projeto PAW1</title>
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+                <style>
+                    h1{text-align: center;}
+                    a.card:hover {
+                    background-color: #000000;
+                    border-color: #222222;
+                    }
+                    h5{text-align: center;}
+                </style>
+            </head>
+
+            <body class="d-flex justify-content-center align-items-center" style="min-height: 70vh; background-color: #07093d;">
+
+            <div class="container">
+
+                <h1 class="text-primary">Projeto PAW 1º Bimestre</h1>
+                <h5 class="text-info">Página de projeto com 5 formulários!!</h5>
+
+
+                <div class="row justify-content-center g-3">
+
+                <div class="col-4">
+                    <a href="formularioPessoa.html" class="card text-decoration-none text-white p-3 h-100" style="background-color: #7b00bd">
+                    <div class="card-body">
+                        <h6 class="card-title">Cálculo de IMC</h6>
+                        <p class="card-text" style="font-size: 13px;">Informe seu peso e altura para calcular seu IMC e ver sua situação.</p>
+                    </div>
+                    </a>
+                </div>
+
+                <div class="col-4">
+                    <a href="formularioProduto.html" class="card text-decoration-none text-white p-3 h-100" style="background-color: #7b00bd">
+                    <div class="card-body">
+                        <h6 class="card-title">Ver estoque de loja</h6>
+                        <p class="card-text" style="font-size: 13px;">Cadastre produtos e gerencie o estoque.</p>
+                    </div>
+                    </a>
+                </div>
+
+                <div class="col-4">
+                    <a href="formularioNota.html" class="card text-decoration-none text-white p-3 h-100" style="background-color: #7b00bd">
+                    <div class="card-body">
+                        <h6 class="card-title">Cálculo de média</h6>
+                        <p class="card-text" style="font-size: 13px;">Calcule a média do aluno e veja a situação.</p>
+                    </div>
+                    </a>
+                </div>
+
+                <div class="col-4">
+                    <a href="formularioFuncionario.html" class="card text-decoration-none text-white p-3 h-100" style="background-color: #7b00bd">
+                    <div class="card-body">
+                        <h6 class="card-title">Salário de funcionário</h6>
+                        <p class="card-text" style="font-size: 13px;">Calcule o salário a partir das horas trabalhadas e das horas extras.</p>
+                    </div>
+                    </a>
+                </div>
+
+                <div class="col-4">
+                    <a href="formularioTriangulo.html" class="card text-decoration-none text-white p-3 h-100" style="background-color: #7b00bd">
+                    <div class="card-body">
+                        <h6 class="card-title">Calcular triângulo</h6>
+                        <p class="card-text" style="font-size: 13px;">Informe os lados e descubra o tipo, perímetro e área do triângulo.</p>
+                    </div>
+                    </a>
+                </div>
+
+                </div>t</body>
+            </html>';
+
+        $response->getBody()->write($resposta);
         return $response;
     }
 );
@@ -132,7 +133,29 @@ $app->get(
         $p->setAltura($Alturaform);
         $imc = $p->calcularIMC();
         $mensagem = $p->MensagemIMC();
-        $resposta = "Olá, $Nomeform!<br>Seu IMC é $imc<br>Situação: $mensagem";
+        $resposta = "
+            <!DOCTYPE html>
+            <html lang='pt-BR'>
+            <head>
+                <meta charset='UTF-8'>
+                <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+                <title>Resultado IMC</title>
+                <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet'>
+            </head>
+            <body class='d-flex justify-content-center align-items-center' style='min-height: 100vh; background-color: #07093d;'>
+                <div class='container' style='max-width: 480px;'>
+                    <div class='card p-4 text-white' style='background-color: #7b00bd;'>
+                        <h4 class='card-title text-center mb-4'>Resultado do IMC</h4>
+                        <p><strong>Nome:</strong> $Nomeform</p>
+                        <p><strong>IMC:</strong> $imc</p>
+                        <p><strong>Situação:</strong> $mensagem</p>
+                    </div>
+                    <div class='text-center mt-3'>
+                        <a href='/' class='text-info'>Voltar ao menu</a>
+                    </div>
+                </div>
+            </body>
+            </html>";
         $response->getBody()->write($resposta);
         return $response;
     }
@@ -166,13 +189,40 @@ $app->get(
             $produtosform[]=$p;
         }
 
-    $resposta = "";
+    $resposta = "
+        <!DOCTYPE html>
+            <html lang='pt-BR'>
+            <head>
+                <meta charset='UTF-8'>
+                <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+                <title>Resultado Estoque</title>
+                <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet'>
+            </head>
+            <body class='d-flex justify-content-center align-items-center' style='min-height: 100vh; background-color: #07093d;'>
+                <div class='container' style='max-width: 720px;'>
+                    <h1 class='text-primary text-center'>Resultado do Estoque</h1>
+                    <h5 class='text-info text-center mb-4'>Dados dos produtos</h5>
+                    <div class='row g-3'>";
 
     foreach ($produtosform as $p) {
-        $resposta .= "Produto: " . $p->getNome() . "<br>";
-        $resposta .= "Quantidade: " . $p->getEstoque() . "<br>";
-        $resposta .= "Valor total: R$ " . number_format($p->getValorTotal(), 2, ',', '.') . "<br><br>";
+         $resposta .= "
+            <div class='col-6'>
+                <div class='card p-4 text-white' style='background-color: #7b00bd;'>
+                    <h6 class='card-title'>" . $p->getNome() . "</h6>
+                    <p class='card-text'>Quantidade: " . $p->getEstoque() . "</p>
+                    <p class='card-text'>Valor total: R$ " . number_format($p->getValorTotal(), 2, ',', '.') . "</p>
+                </div>
+            </div>";
     }
+
+    $resposta .= "
+        </div>
+        <div class='text-center mt-3'>
+            <a href='/' class='text-info'>← Voltar ao menu</a>
+        </div>
+    </div>
+    </body>
+    </html>";
 
     $response->getBody()->write($resposta);
     return $response;
@@ -204,7 +254,28 @@ $app->get(
         $media=$n->CalcularMedia();
         $situacao=$n->SituacaoAluno();
 
-        $resposta = "Olá, $Nomeform!<br>Nota 1: $Nota1form || Nota 2: $Nota2form<br>Média: $media<br>Situação: $situacao";
+        $resposta = "<!DOCTYPE html>
+            <html lang='pt-BR'>
+            <head>
+                <meta charset='UTF-8'>
+                <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+                <title>Resultado IMC</title>
+                <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet'>
+            </head>
+            <body class='d-flex justify-content-center align-items-center' style='min-height: 100vh; background-color: #07093d;'>
+                <div class='container' style='max-width: 480px;'>
+                    <div class='card p-4 text-white' style='background-color: #7b00bd;'>
+                        <h4 class='card-title text-center mb-4'>Situação do aluno</h4>
+                        <p><strong>Nome:</strong> $Nomeform</p>
+                        <p><strong>Média:</strong> $media</p>
+                        <p><strong>Situação:</strong> $situacao</p>
+                    </div>
+                    <div class='text-center mt-3'>
+                        <a href='/' class='text-info'>Voltar ao menu</a>
+                    </div>
+                </div>
+            </body>
+            </html>";
         $response->getBody()->write($resposta);
         return $response;
     }
@@ -248,7 +319,27 @@ $app->get(
         $f->setqtdHoras($qtdHorasform);
         $f->setqtdHorasExtras($qtdHorasExtrasform);
         $salario=$f->calcularSalario();
-        $resposta = "Olá $Nomeform!<br>Seu salário é $salario";
+        $resposta = "<!DOCTYPE html>
+            <html lang='pt-BR'>
+            <head>
+                <meta charset='UTF-8'>
+                <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+                <title>Resultado IMC</title>
+                <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet'>
+            </head>
+            <body class='d-flex justify-content-center align-items-center' style='min-height: 100vh; background-color: #07093d;'>
+                <div class='container' style='max-width: 480px;'>
+                    <div class='card p-4 text-white' style='background-color: #7b00bd;'>
+                        <h4 class='card-title text-center mb-4'>Seu salário</h4>
+                        <p><strong>Nome:</strong> $Nomeform</p>
+                        <p><strong>Salário:</strong> $salario</p>
+                    </div>
+                    <div class='text-center mt-3'>
+                        <a href='/' class='text-info'>Voltar ao menu</a>
+                    </div>
+                </div>
+            </body>
+            </html>";
         $response->getBody()->write($resposta);
         return $response;
     }
@@ -283,7 +374,28 @@ $app->get(
         $tipo=$l->tipoTriangulo();
         $perimetro=$l->calcularPerimetro();
         $area=$l->calcularArea();
-        $resposta="Tipo do triângulo: $tipo<br>Perímetro: $perimetro<br>Área: $area";
+        $resposta="<!DOCTYPE html>
+            <html lang='pt-BR'>
+            <head>
+                <meta charset='UTF-8'>
+                <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+                <title>Resultado IMC</title>
+                <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet'>
+            </head>
+            <body class='d-flex justify-content-center align-items-center' style='min-height: 100vh; background-color: #07093d;'>
+                <div class='container' style='max-width: 480px;'>
+                    <div class='card p-4 text-white' style='background-color: #7b00bd;'>
+                        <h4 class='card-title text-center mb-4'>Triângulo</h4>
+                        <p><strong>Tipo:</strong> $tipo</p>
+                        <p><strong>Perímetro:</strong> $perimetro</p>
+                        <p><strong>Área:</strong> $area</p>
+                    </div>
+                    <div class='text-center mt-3'>
+                        <a href='/' class='text-info'>Voltar ao menu</a>
+                    </div>
+                </div>
+            </body>
+            </html>";
         $response->getBody()->write($resposta);
         return $response;
     }
